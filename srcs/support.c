@@ -6,18 +6,18 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 17:49:43 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 18:08:06 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/19 18:57:54 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int   max_ab(int a, int b)
+int		max_ab(int a, int b)
 {
 	return ((a - b) > 0 ? a : b);
 }
 
-int   ft_abs(int a)
+int		ft_abs(int a)
 {
 	return ((a < 0) ? a * (-1) : a);
 }
@@ -30,7 +30,7 @@ char	*ft_skiptab(char *str)
 	return (str);
 }
 
-int	word_count(char const *s, char c)
+int		word_count(char const *s, char c)
 {
 	size_t len;
 

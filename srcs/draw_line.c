@@ -6,7 +6,7 @@
 /*   By: lconchit <lconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:33:42 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 18:08:06 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/19 19:12:21 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_point		p_sign(t_dpoint pt0, t_dpoint pt1)
 	return (sign);
 }
 
-int			fdf_pix_to_buf(int x, int y, int color, t_map *map)
+int					fdf_pix_to_buf(int x, int y, int color, t_map *map)
 {
 	if (x < 0)
 		return (0);

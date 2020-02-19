@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 23:28:00 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 18:08:06 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/19 18:57:05 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ int				fdf_init(int fd, t_map *map)
 {
 	t_mlxadr	mlx_adr;
 
-	map->d.m = 0;			//начальные размеры карты
+	map->d.m = 0;
 	map->d.n = 0;
-	map->mlx_ptr = mlx_init();	//связь с рисовалкой
-	if (fdf_create_img_win(map) == 0) //привязка окна и изображения в памяти
+	map->mlx_ptr = mlx_init();
+	if (fdf_create_img_win(map) == 0)
 		fdf_exit(map);
-	map->canvas = ft_read(fd, map); //читаем карту
-	map->cnv_trm = ft_create_matrd(map->d.n, map->d.m); //создаем копию дабл
+	map->canvas = ft_read(fd, map);
+	map->cnv_trm = ft_create_matrd(map->d.n, map->d.m);
 	map->buffer = (int*)mlx_get_data_addr(map->img_ptr, &mlx_adr.bits_per_pixel,
-			&mlx_adr.size_line, &mlx_adr.endian); //спецфункция-буфер для хранения адресов
+			&mlx_adr.size_line, &mlx_adr.endian);
 	map->z_h = 1;
 	map->projection = ISO;
 	map->cam.proj_per_k = -0.05;

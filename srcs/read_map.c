@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 23:44:40 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 18:08:06 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/19 18:59:52 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_dpoint		**ft_str_to_point(t_list *l, t_map *map)
 	{
 		st = ft_strsplit((char*)l->content, ' ');
 		if (map->d.m != 0 && map->d.m !=
-		    ((int)word_count((char*)l->content, ' ')))
+				((int)word_count((char*)l->content, ' ')))
 		{
 			ft_putstr("Found wrong line length. Exiting.\n");
 			fdf_exit(map);
