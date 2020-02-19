@@ -6,13 +6,13 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 18:46:46 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/18 21:00:11 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/19 17:36:55 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		draw_background(t_map *map, int color) //отрисовка фона
+void		draw_background(t_map *map, int color)
 {
 	int		i;
 	int		lenght;
@@ -25,8 +25,8 @@ void		draw_background(t_map *map, int color) //отрисовка фона
 
 void		draw_menu(t_map *map)
 {
-	int	y;
-	int	c;
+	int		y;
+	int		c;
 	void	*mlx;
 	void	*win;
 
@@ -37,17 +37,17 @@ void		draw_menu(t_map *map)
 	mlx_string_put(mlx, win, WIN_WIDTH - 70, y = 10, c, "Press:");
 	mlx_string_put(mlx, win, WIN_WIDTH - 110, y += 25, c, "-/+ - zoom");
 	mlx_string_put(mlx, win, WIN_WIDTH - 120, y += 25, c, "<,> - move");
-	mlx_string_put(mlx, win, WIN_WIDTH - 260, y += 25, c, "W/S, A/D, Q/E - rotate");
-	mlx_string_put(mlx, win, WIN_WIDTH - 210, y += 25, c, "U,I,P - projection");
+	mlx_string_put(mlx, win, WIN_WIDTH - 260,
+			y += 25, c, "W/S,A/D,Q/E - rotate");
+	mlx_string_put(mlx, win, WIN_WIDTH - 210, y += 25, c, "I,P - projection");
 	mlx_string_put(mlx, win, WIN_WIDTH - 100, y += 25, c, "R - reset");
 	mlx_string_put(mlx, win, WIN_WIDTH - 110, y += 25, c, "Esc - exit");
 }
 
-void		draw_map(t_map map) //отрисовка карты в памяти
+void		draw_map(t_map map)
 {
 	int		i;
 	int		j;
-	int		f;
 
 	i = -1;
 	j = -1;
@@ -64,21 +64,21 @@ void		draw_map(t_map map) //отрисовка карты в памяти
 	}
 }
 
-void		draw(t_map *map) //пересчет координат в памяти и отрисовка
+void		draw(t_map *map)
 {
 	int		i;
 
-	transform(map);		//масштаб и сдвиг
-	rotation(map);			 //вращение
-	if (map->projection == UP_VIEW)		//проекция
+	transform(map);
+	rotation(map);
+	if (map->projection == UP_VIEW)
 		up_mod(map);
 	else if (map->projection == ISO)
 		iso_mod(map);
 	else if (map->projection == PERSP)
 		persp_mod(map);
-	draw_background(map, COLOR_BACKGR); //фон
-	draw_map(*map);				//картинка в памяти
+	draw_background(map, COLOR_BACKGR);
+	draw_map(*map);
 	mlx_clear_window(map->mlx_ptr, map->win_ptr);
-	i = mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0); //отрисовка в окне
+	i = mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 	draw_menu(map);
 }

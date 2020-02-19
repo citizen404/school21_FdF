@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lconchit <lconchit@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 17:33:42 by lconchit          #+#    #+#             */
+/*   Updated: 2020/02/19 18:08:06 by lconchit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 static t_point		d_point(t_dpoint pt0, t_dpoint pt1)
@@ -27,14 +39,14 @@ int			fdf_pix_to_buf(int x, int y, int color, t_map *map)
 	return (1);
 }
 
-void				draw_line(t_dpoint pt0, t_dpoint pt1, t_map *map) // рисуем по Брейзенхайму
+void				draw_line(t_dpoint pt0, t_dpoint pt1, t_map *map)
 {
 	t_point			d;
 	t_point			sign;
 	t_point			er;
 
-	d = d_point(pt0, pt1); // разница координат
-	sign = p_sign(pt0, pt1); // шаг
+	d = d_point(pt0, pt1);
+	sign = p_sign(pt0, pt1);
 	er.x = d.x - d.y;
 	while (pt0.sx != pt1.sx || pt0.sy != pt1.sy)
 	{

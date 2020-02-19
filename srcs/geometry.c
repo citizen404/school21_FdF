@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 20:41:37 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/13 04:18:40 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/19 17:44:41 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ void			rot_x(t_map *map, double alpha, t_dpoint **array)
 	}
 }
 
-int			dist(t_dpoint p1, t_dpoint p2)
+int				dist(t_dpoint p1, t_dpoint p2)
 {
-	int		l;
+	int			l;
 
 	l = sqrt(p2.sx * p2.sx - 2 * p2.sx * p1.sx + p1.sx * p1.sx +
 			p2.sy * p2.sy - 2 * p2.sy * p1.sy + p1.sy * p1.sy);

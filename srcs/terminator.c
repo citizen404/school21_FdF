@@ -33,12 +33,8 @@ void			destroy_map(t_map *map)
 	int			i;
 
 	i = -1;
-//	while (++i < map->d.n)
-//		free(map->canvas[i]);
 	free((void*)map->canvas);
 	i = -1;
-//	while (++i < map->d.n)
-//		free(map->cnv_trm[i]);
 	free((void*)map->cnv_trm);
 }
 
