@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 20:41:37 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 17:44:41 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/20 19:13:12 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void			rot_z(t_map *map, double alpha, t_dpoint **array)
 			tmp = array[i][j];
 			map->cnv_trm[i][j].x = tmp.x * cos(alpha) + tmp.y * sin(alpha);
 			map->cnv_trm[i][j].y = -tmp.x * sin(alpha) + tmp.y * cos(alpha);
-			map->cnv_trm[i][j].z = map->z_h * tmp.z;
+			map->cnv_trm[i][j].z = tmp.z;
 		}
 		j = -1;
 	}
@@ -54,7 +54,7 @@ void			rot_y(t_map *map, double alpha, t_dpoint **array)
 		while (++j < map->d.m)
 		{
 			tmp = array[i][j];
-			k = map->z_h * tmp.z;
+			k = tmp.z;
 			map->cnv_trm[i][j].x = tmp.x * cos(alpha) - k * sin(alpha);
 			map->cnv_trm[i][j].y = tmp.y;
 			map->cnv_trm[i][j].z = tmp.x * sin(alpha) + k * cos(alpha);
@@ -77,7 +77,7 @@ void			rot_x(t_map *map, double alpha, t_dpoint **array)
 		while (++j < map->d.m)
 		{
 			tmp = array[i][j];
-			k = map->z_h * tmp.z;
+			k = tmp.z;
 			map->cnv_trm[i][j].x = tmp.x;
 			map->cnv_trm[i][j].y = tmp.y * cos(alpha) + k * sin(alpha);
 			map->cnv_trm[i][j].z = -tmp.y * sin(alpha) + k * cos(alpha);

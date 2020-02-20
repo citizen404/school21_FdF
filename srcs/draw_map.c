@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 18:46:46 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 17:36:55 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/20 19:30:52 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void		draw_menu(t_map *map)
 	win = map->win_ptr;
 	mlx_string_put(mlx, win, WIN_WIDTH - 70, y = 10, c, "Press:");
 	mlx_string_put(mlx, win, WIN_WIDTH - 110, y += 25, c, "-/+ - zoom");
-	mlx_string_put(mlx, win, WIN_WIDTH - 120, y += 25, c, "<,> - move");
-	mlx_string_put(mlx, win, WIN_WIDTH - 260,
+	mlx_string_put(mlx, win, WIN_WIDTH - 110, y += 25, c, "<,> - move");
+	mlx_string_put(mlx, win, WIN_WIDTH - 210,
 			y += 25, c, "W/S,A/D,Q/E - rotate");
-	mlx_string_put(mlx, win, WIN_WIDTH - 210, y += 25, c, "I,P - projection");
+	mlx_string_put(mlx, win, WIN_WIDTH - 190, y += 25, c, "I,P,U - projection");
 	mlx_string_put(mlx, win, WIN_WIDTH - 100, y += 25, c, "R - reset");
 	mlx_string_put(mlx, win, WIN_WIDTH - 110, y += 25, c, "Esc - exit");
 }

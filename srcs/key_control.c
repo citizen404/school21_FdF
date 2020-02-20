@@ -6,12 +6,11 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 14:11:26 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 17:44:41 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/20 18:16:37 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "stdio.h"
 
 void			reset(t_map *map)
 {
@@ -71,19 +70,10 @@ int				key_hook(int key, void *param)
 	t_map		*map;
 
 	map = (t_map*)param;
-	printf("%d\n", key);
 	if (key == RESET)
 		reset(map);
-	if (key == Z_UP)
-	{
-		map->z_h += 0.1;
-		transform(map);
-	}
-	if (key == Z_DOWN)
-	{
-		map->z_h -= 0.1;
-		transform(map);
-	}
+	if (key == Z_UP || key == Z_DOWN)
+		zoom_z(key, map);
 	if (key == ZOOM_IN || key == ZOOM_OUT)
 		zoom(key, map);
 	if (key == RX_D || key == RX_UP || key == RY_D || key == RY_UP ||

@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 13:49:24 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 19:32:31 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/20 18:01:30 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void			destroy_split(char **st)
 void			del_list(void *s, size_t size)
 {
 	if (!s)
-		return;
+		return ;
 	free(s);
 	size = 0;
 }

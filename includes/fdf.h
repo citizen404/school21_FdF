@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:25:32 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 19:34:20 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/20 18:45:19 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 
 # define G_R 0.58
 # define COLOR_LINE 0xfffafa
-# define COLOR_BACKGR 0x000000//0x556b2f
+# define COLOR_BACKGR 0x000000
 
 # define UP_VIEW 32
 # define ISO 34
-# define RESET 15//31
+# define RESET 15
 # define PERSP   35
 
-# define RX_UP 0//89
-# define RX_D 2//91
-# define RY_UP 13//86
-# define RY_D 1//87
-# define RZ_UP 12//83
-# define RZ_D 14//84
-# define ZOOM_IN 24//69
-# define ZOOM_OUT 27//78
+# define RX_UP 1
+# define RX_D 13
+# define RY_UP 0
+# define RY_D 2
+# define RZ_UP 12
+# define RZ_D 14
+# define ZOOM_IN 24
+# define ZOOM_OUT 27
 # define Z_UP 6
 # define Z_DOWN 7
 # define MOVE_UP 125
@@ -123,6 +123,7 @@ void		rot_x(t_map *map, double alpha, t_dpoint **array);
 void		up_mod(t_map *map);
 void		iso_mod(t_map *map);
 void		persp_mod(t_map *map);
+void        zoom_z(int key, t_map *map);
 
 void		draw(t_map *map);
 void		draw_map(t_map map);
@@ -140,9 +141,9 @@ void		del_list(void *s, size_t size);
 
 int			ft_abs(int a);
 int			word_count(char const *s, char c);
-//char		*ft_skiptab(char *str);
 void		ft_lstaddback(t_list **alst, t_list *new);
 int			get_next_line(const int fd, char **line);
 int			print_error(int i);
+void		print_error_exit(int i, t_map *map);
 
 #endif

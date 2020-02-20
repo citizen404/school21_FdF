@@ -6,7 +6,7 @@
 /*   By: lconchit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 23:44:40 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 18:59:52 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/20 19:30:49 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ t_dpoint		**ft_str_to_point(t_list *l, t_map *map)
 	t_dpoint	**canvas;
 	char		*s;
 
-	i = map->d.n;
 	canvas = (t_dpoint**)malloc(map->d.n * sizeof(t_dpoint));
 	s = (char*)l->content;
 	if (map->d.m == 0)
@@ -59,10 +58,7 @@ t_dpoint		**ft_str_to_point(t_list *l, t_map *map)
 		st = ft_strsplit((char*)l->content, ' ');
 		if (map->d.m != 0 && map->d.m !=
 				((int)word_count((char*)l->content, ' ')))
-		{
-			ft_putstr("Found wrong line length. Exiting.\n");
-			fdf_exit(map);
-		}
+			print_error_exit(6, map);
 		canvas[i] = ft_get_point(&canvas[i], i, st, map);
 		destroy_split(st);
 		i++;
@@ -83,7 +79,6 @@ t_dpoint		**ft_read(int fd, t_map *map)
 	t_dpoint	**canvas;
 	char		*ch;
 	t_list		*lrow;
-	t_list		*l;
 
 	def_value(&line, &lrow);
 	while (fd != 0 && line != NULL)
@@ -97,8 +92,7 @@ t_dpoint		**ft_read(int fd, t_map *map)
 			break ;
 		ch = ft_strsub(line, 0, ft_strlen(line));
 		map->d.n++;
-		l = ft_lstnew(ch, sizeof(char*) * ft_strlen(ch));
-		ft_lstaddback(&lrow, l);
+		ft_lstaddback(&lrow, ft_lstnew(ch, sizeof(char*) * ft_strlen(ch)));
 		free((void*)ch);
 		free((void*)line);
 	}

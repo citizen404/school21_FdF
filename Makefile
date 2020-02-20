@@ -6,7 +6,7 @@
 #    By: lconchit <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 19:15:44 by lconchit          #+#    #+#              #
-#    Updated: 2020/02/19 19:20:54 by lconchit         ###   ########.fr        #
+#    Updated: 2020/02/20 16:04:53 by lconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ MLX_FLAGS = -lmlx -lm -L$(MLX_DIR) -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT_DIR) $(MLX_DIR)
+$(NAME): $(OBJS) $(LIBFT_DIR) $(MLX_DIR) $(INCLUDES_FDF_DIR)
 	@make -C $(MLX_DIR)
 	@make -C $(LIBFT_DIR)
 	$(CC) $(FLAGS) $(MLX_FLAGS) $(LIBFT_FLAGS) -I$(INCLUDES_FDF_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) $(OBJS) -o $(NAME)

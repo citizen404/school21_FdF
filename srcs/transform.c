@@ -6,11 +6,20 @@
 /*   By: lconchit <lconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:56:37 by lconchit          #+#    #+#             */
-/*   Updated: 2020/02/19 17:56:37 by lconchit         ###   ########.fr       */
+/*   Updated: 2020/02/20 18:15:23 by lconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void			zoom_z(int key, t_map *map)
+{
+	if (key == Z_UP)
+		map->z_h += 0.1;
+	if (key == Z_DOWN)
+		map->z_h -= 0.1;
+	transform(map);
+}
 
 void			fdf_offset(t_dpoint **canvas, t_size s_canvas, t_point k)
 {
